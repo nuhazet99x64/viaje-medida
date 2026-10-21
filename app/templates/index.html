@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Este es el contenido de index</h2>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, magni dicta. Velit nisi qui possimus, soluta
-    ducimus nam omnis corporis reiciendis enim, quibusdam at, quaerat impedit praesentium cumque sequi suscipit.</p>
-<img src="{{ url_for('static', filename='img/aguila.png') }}" alt="Imagen de prueba de un aguila">
+<h2>Inicio</h2>
+<ul>
+    <h3>Destinos: {{destinos|length}}</h3>
+    <h3>Alojamientos: {{alojamientos|length}}</h3>
+    <h3>Actividades: {{actividades|length}}</h3>
+</ul>
 {% endblock %}
 
 {% block title %}Inicio{% endblock %}

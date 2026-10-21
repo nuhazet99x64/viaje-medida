@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Not found{% endblock %}
+
+{% block content %}
+<h2>Consulta Rapida</h2>
+<ul>
+    <h3>Listado General de Destinos</h3>
+    <ol>
+        {%for destino in destinos%}
+        <li>{{destino.nombre}}, {{destino.pais}}</li>
+        {%endfor%}
+    </ol>
+    <h3>Listado General de Alojamientos</h3>
+    <ol>
+        {%for alojamiento in alojamientos%}
+        <li>{{alojamiento.nombre}}, {{alojamiento.tipo}}</li>
+        {%endfor%}
+    </ol>
+    <h3>Listado General de Actividades</h3>
+    <ol>
+        {%for destino in destinos%}
+        <li>{{destino.nombre}}, {{destino.pais}}</li>
+        {%endfor%}
+    </ol>
+</ul>
+
+{% endblock %}

@@ -1,3 +1,6 @@
+from data.data_actividades import ACTIVIDADES
+from data.data_alojamientos import ALOJAMIENTOS
+from data.data_destinos import DESTINOS
 from data.productos import productos
 from flask import Flask, abort, redirect, render_template, request, url_for
 from form import LoginForm
@@ -10,11 +13,12 @@ app.config["SECRET_KEY"] = "mi_clave_secreta_super_segura"
 # Ruta 1: Devuelve un HTML muy básico
 @app.route("/")
 def home():
-    # return """
-    #     <h1>¡Hola desde Flask en Docker!!!!</h1>
-    #     <p>Este es tu primer servidor Python funcionando.</p>
-    # """
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        destinos=DESTINOS,
+        alojamientos=ALOJAMIENTOS,
+        actividades=ACTIVIDADES,
+    )
 
 
 @app.route("/saludo/<name>")
@@ -102,6 +106,16 @@ def pagina_no_encontrada(e):
 @app.route("/acerca_de_nosotros")
 def nosotros():
     return render_template("acerca_de_nosotros.html")
+
+
+@app.route("/buscador", methods=["GET"])
+def buscador():
+    return render_template(
+        "buscador.html",
+        destinos=DESTINOS,
+        alojamientos=ALOJAMIENTOS,
+        actividades=ACTIVIDADES,
+    )
 
 
 if __name__ == "__main__":
